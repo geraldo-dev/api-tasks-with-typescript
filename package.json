@@ -14,6 +14,10 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon --exec ts-node src/app.ts"
+  },
   "devDependencies": {
     "nodemon": "^3.1.9"
   },
