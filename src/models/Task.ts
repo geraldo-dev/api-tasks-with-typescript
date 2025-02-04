@@ -26,7 +26,11 @@ export class TaskModel {
         return id;
     }
 
-    async upadte( id: number ,task: Task): Promise<number> {
+    async update( id: number ,task: Task): Promise<number> {
         return await this.knex('tasks').where({id}).update(task);
+    }
+
+    async delete( id: number): Promise<number> {
+        return await this.knex('tasks').where({id}).del();
     }
 }

@@ -12,6 +12,7 @@ export function createTaskRoutes(knex: Knex): Router {
     router.get('/tasks/:id', (req, res)=> taskController.getTaskById(req, res));
     router.post('/tasks', (req, res)=> taskController.createTask(req, res));
     router.put('/tasks/:id', (req, res)=> taskController.updateTask(req, res));
+    router.delete('/tasks/:id', (req, res)=> taskController.deleteTask(req, res));
 
     return router;
 }
