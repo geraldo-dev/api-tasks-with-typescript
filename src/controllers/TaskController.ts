@@ -15,6 +15,18 @@ export class Taskcontroller {
             res.status(500).json({ error: 'Internal Server error' });
         }
     }
+    
+    async getTaskById(req: Request, res: Response): Promise<void>{
+        try {
+
+            const task = await this.taskModel.findById(Number(req.params.id));
+            res.status(200).json(task);
+        } catch (error) {
+            
+            res.status(500).json({ error: 'Internal Server error' });
+        }
+    }
+
     async createTask(req: Request, res: Response): Promise<void>{
         try {
 

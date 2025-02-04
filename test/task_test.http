@@ -6,7 +6,7 @@ GET  http://localhost:3000/api/tasks?username=geraldo
 
 ###
 
-GET  http://localhost:3000/api/tasks/1
+GET  http://localhost:3000/api/tasks/2
 
 ###
 
@@ -14,8 +14,8 @@ POST  http://localhost:3000/api/tasks
 content-type: application/json
 
 {
-    "title": "estuda edição de videos",
-    "description": "para emprender novas maneira de ganha dinheiro"
+    "title": "estuda automação",
+    "description": "novas maneira facilitar e agilaza grande tarefas"
 }
 ###
 

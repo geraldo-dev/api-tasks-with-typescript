@@ -9,6 +9,7 @@ export function createTaskRoutes(knex: Knex): Router {
     const taskController = new Taskcontroller(taskModel);
 
     router.get('/tasks', (req, res)=> taskController.getAllTasks(req, res));
+    router.get('/tasks/:id', (req, res)=> taskController.getTaskById(req, res));
     router.post('/tasks', (req, res)=> taskController.createTask(req, res));
 
     return router;
