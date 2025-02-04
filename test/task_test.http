@@ -1,0 +1,33 @@
+GET  http://localhost:3000/api/tasks
+
+###
+
+GET  http://localhost:3000/api/tasks?username=geraldo
+
+###
+
+GET  http://localhost:3000/api/tasks/1
+
+###
+
+POST  http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+    "title": "estuda edição de videos",
+    "description": "para emprender novas maneira de ganha dinheiro"
+}
+###
+
+PUT  http://localhost:3000/api/tasks/3
+content-type: application/json
+
+{
+    "text": " deletar"
+}
+
+
+
+###
+
+DELETE  http://localhost:3000/api/tasks/3

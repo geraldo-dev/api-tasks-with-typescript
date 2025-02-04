@@ -16,4 +16,9 @@ export class TaskModel {
     async findAll(): Promise<Task[]> {
         return this.knex('tasks').select('*');
     }
+
+    async create(task: Task): Promise<number> {
+        const [id] = await this.knex('tasks').insert(task);
+        return id;
+    }
 }

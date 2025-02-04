@@ -15,4 +15,15 @@ export class Taskcontroller {
             res.status(500).json({ error: 'Internal Server error' });
         }
     }
+    async createTask(req: Request, res: Response): Promise<void>{
+        try {
+
+            const newTasks: Task = req.body;
+            const taskId = await this.taskModel.create(newTasks);
+            res.status(201).json(taskId);
+        } catch (error) {
+            
+            res.status(500).json({ error: 'Internal Server error' });
+        }
+    }
 }
