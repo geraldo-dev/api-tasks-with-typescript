@@ -10,14 +10,6 @@ GET  http://localhost:3000/api/tasks/2
 
 ###
 
-POST  http://localhost:3000/api/tasks
-content-type: application/json
-
-{
-    "title": "testa DELETE",
-    "description": "novas maneira facilitar e agilaza grande tarefas"
-}
-###
 
 PUT  http://localhost:3000/api/tasks/2
 content-type: application/json
@@ -25,7 +17,6 @@ content-type: application/json
 {
     "completed": true
 }
-
 
 
 ###

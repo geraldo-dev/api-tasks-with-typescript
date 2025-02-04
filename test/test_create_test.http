@@ -1,0 +1,49 @@
+
+# valido
+POST  http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+    "title": "novo com sucesso",
+    "description": "novas maneira facilitar e agilaza grande tarefas"
+}
+###
+
+# teste validação tipo
+POST  http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+    "title": 123,
+    "description": "novas maneira facilitar e agilaza grande tarefas"
+}
+
+###
+# teste validação de tamanho
+POST  http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+    "title": "",
+    "description": "novas maneira facilitar e agilaza grande tarefas"
+}
+
+###
+
+# validação de campo obrigatorio
+POST  http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+    "description": "novas maneira facilitar e agilaza grande tarefas"
+}
+
+###
+
+# validação de campo description obrigatorio
+POST  http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+    "title": "novas maneira facilitar e agilaza grande tarefas"
+}

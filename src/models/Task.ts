@@ -4,7 +4,7 @@ import { Knex } from "knex";
 export interface Task {
     id?: number;
     title: string;
-    description?: string;
+    description: string;
     completed?: boolean;
     created_at?: Date;
     updated_at?: Date;
@@ -22,8 +22,7 @@ export class TaskModel {
     }
 
     async create(task: Task): Promise<number> {
-        const [id] = await this.knex('tasks').insert(task);
-        return id;
+        return this.knex('tasks').insert(task);
     }
 
     async update( id: number ,task: Task): Promise<number> {

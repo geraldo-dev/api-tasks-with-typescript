@@ -1,5 +1,6 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { TaskModel, Task } from '../models/Task';
+import { TaskSchema } from '../schemas/TaskSchema';
 
 
 export class Taskcontroller {
@@ -35,13 +36,15 @@ export class Taskcontroller {
 
     async createTask(req: Request, res: Response): Promise<void>{
         try {
-
-            const newTasks: Task = req.body;
-            const taskId = await this.taskModel.create(newTasks);
-            res.status(201).json(taskId);
-        } catch (error) {
+            //validaçoes
+            const validateData = TaskSchema.parse(req.body);
+            await this.taskModel.create(validateData);
+            res.status(201).json({msg : 'created with success'});
             
-            res.status(500).json({ error: 'Internal Server error' });
+
+        } catch (error) {
+    
+            res.status(500).json(error);
         }
     }
 
@@ -54,7 +57,7 @@ export class Taskcontroller {
                 
                 res.status(201).json({ message: 'Task updated successfully' });
             } else {
-                
+
                 res.status(404).json({  msg: 'not find Task' });
             }
         } catch (error) {
@@ -74,7 +77,6 @@ export class Taskcontroller {
                 
                 res.status(404).json({  msg: 'not find Task' });
             }
-            console.log(findTask)
         } catch (error) {
             
             res.status(500).json({ error: 'Internal Server error' });
