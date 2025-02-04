@@ -13,6 +13,11 @@ export const TaskSchema = z.object({
         invalid_type_error: 'O campo "description" deve ser uma string',
       }).min(1, { message: 'O nome deve ter pelo menos 1 caracteres' }).max(300),
 
+    completed: z.boolean({
+      invalid_type_error: 'O campo "completed" deve ser uma boolean',
+    }).default(true).optional()
+
 });
+
 
 export type TaskInput = z.infer<typeof TaskSchema>;

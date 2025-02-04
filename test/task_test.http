@@ -10,14 +10,32 @@ GET  http://localhost:3000/api/tasks/2
 
 ###
 
-
-PUT  http://localhost:3000/api/tasks/2
+PUT  http://localhost:3000/api/tasks/1
 content-type: application/json
 
 {
     "completed": true
 }
+###
 
+PUT  http://localhost:3000/api/tasks/2
+content-type: application/json
+
+{
+    "title": "estuda automação 2025",
+    "description": "novas maneira facilitar e agilaza grande tarefas",
+    "completed": true
+}
+###
+
+PUT  http://localhost:3000/api/tasks/22
+content-type: application/json
+
+{
+    "title": "estuda automação 2025",
+    "description": "novas maneira facilitar e agilaza grande tarefas",
+    "completed": true
+}
 
 ###
 

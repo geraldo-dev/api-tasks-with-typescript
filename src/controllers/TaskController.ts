@@ -36,12 +36,10 @@ export class Taskcontroller {
 
     async createTask(req: Request, res: Response): Promise<void>{
         try {
-            //validaçoes
+            
             const validateData = TaskSchema.parse(req.body);
             await this.taskModel.create(validateData);
             res.status(201).json({msg : 'created with success'});
-            
-
         } catch (error) {
     
             res.status(500).json(error);
@@ -51,8 +49,8 @@ export class Taskcontroller {
     async updateTask(req: Request, res: Response): Promise<void>{
         try {
 
-            const newTasks: Task = req.body;
-            const findTask = await this.taskModel.update(Number(req.params.id) ,newTasks);
+            const validateData = TaskSchema.parse(req.body)
+            const findTask = await this.taskModel.update(Number(req.params.id) ,validateData);
             if (findTask) {
                 
                 res.status(201).json({ message: 'Task updated successfully' });
@@ -62,7 +60,7 @@ export class Taskcontroller {
             }
         } catch (error) {
             
-            res.status(500).json({ error: 'Internal Server error' });
+            res.status(500).json( error );
         }
     }
 
