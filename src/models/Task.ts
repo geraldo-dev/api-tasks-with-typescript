@@ -25,4 +25,8 @@ export class TaskModel {
         const [id] = await this.knex('tasks').insert(task);
         return id;
     }
+
+    async upadte( id: number ,task: Task): Promise<number> {
+        return await this.knex('tasks').where({id}).update(task);
+    }
 }

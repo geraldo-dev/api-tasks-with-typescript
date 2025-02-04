@@ -38,4 +38,16 @@ export class Taskcontroller {
             res.status(500).json({ error: 'Internal Server error' });
         }
     }
+
+    async updateTask(req: Request, res: Response): Promise<void>{
+        try {
+
+            const newTasks: Task = req.body;
+            await this.taskModel.upadte(Number(req.params.id) ,newTasks);
+            res.status(201).json({ message: 'Task updated successfully' });
+        } catch (error) {
+            
+            res.status(500).json({ error: 'Internal Server error' });
+        }
+    }
 }
